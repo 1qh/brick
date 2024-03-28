@@ -1,0 +1,26 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^react", "^@?\\w"],
+          ["^\\u0000"],
+          ["^(@|components)(/.*|$)"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.?(css)$"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error"
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["cn"],
+      "whitelist": ["notranslate", "fi", "fis", "fi-"]
+    }
+  }
+}
