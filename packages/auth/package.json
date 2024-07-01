@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "name": "@a/auth",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "react-server": "./src/index.rsc.ts",
+      "default": "./src/index.ts"
+    },
+    "./env": "./env.ts"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@a/db": "*",
+    "@auth/core": "latest",
+    "@auth/drizzle-adapter": "latest",
+    "@t3-oss/env-nextjs": "latest",
+    "next": "rc",
+    "next-auth": "beta",
+    "react": "rc",
+    "react-dom": "rc",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@a/eslint-config": "*",
+    "@a/prettier-config": "*",
+    "@a/tsconfig": "*",
+    "eslint": "latest",
+    "prettier": "latest",
+    "typescript": "latest"
+  },
+  "prettier": "@a/prettier-config"
+}

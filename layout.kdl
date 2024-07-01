@@ -1,0 +1,12 @@
+layout {
+    tab{
+        pane command="bun" {
+            args "fake"
+        }
+    }
+    tab{
+        pane command="bun" {
+            args "dev"
+        }
+    }
+}

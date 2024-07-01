@@ -1,0 +1,18 @@
+{
+  "company": ["Apple", "Google", "Facebook", "Amazon", "Microsoft"],
+  "description": [
+    "The best company in the world",
+    "The most innovative company in the world",
+    "The most valuable company in the world",
+    "The most powerful company in the world",
+    "The most successful company in the world"
+  ],
+  "product": ["iPhone", "Cloud Service", "Social Network", "E-commerce", "Windows"],
+  "sellingPoint": [
+    "Our product is the best",
+    "Our product is the most innovative",
+    "Our product is the most valuable",
+    "Our product is the most powerful",
+    "Our product is the most successful"
+  ]
+}

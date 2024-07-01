@@ -1,0 +1,51 @@
+{
+  "private": true,
+  "name": "@a/db",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "default": "./src/client.ts"
+    },
+    "./schema": {
+      "types": "./dist/schema.d.ts",
+      "default": "./src/schema.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf .turbo node_modules",
+    "dev": "tsc --watch",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "push": "bun with-env drizzle-kit push",
+    "studio": "bun with-env drizzle-kit studio",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "dependencies": {
+    "@libsql/client": "latest",
+    "@t3-oss/env-core": "latest",
+    "@vercel/postgres": "latest",
+    "drizzle-orm": "latest",
+    "drizzle-zod": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@a/eslint-config": "*",
+    "@a/prettier-config": "*",
+    "@a/tsconfig": "*",
+    "dotenv-cli": "latest",
+    "drizzle-kit": "latest",
+    "eslint": "latest",
+    "prettier": "latest",
+    "typescript": "latest"
+  },
+  "prettier": "@a/prettier-config"
+}

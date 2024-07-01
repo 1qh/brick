@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "name": "t",
+  "type": "module",
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "git clean -xdf node_modules bun.lockb",
+    "clean:workspaces": "turbo run clean",
+    "db:push": "turbo -F @a/db push",
+    "db:studio": "turbo -F @a/db studio",
+    "dev": "turbo watch dev",
+    "dev:fake-server": "concurrently 'turbo watch dev' 'bun --cwd fake-server --hot serve.ts'",
+    "dev:next": "turbo watch dev -F @a/nextjs...",
+    "dev:studio": "concurrently --restart-tries -1 'turbo watch dev' 'turbo -F @a/db studio'",
+    "fake": "bun --cwd fake-server --hot serve.ts",
+    "fix": "prettier-package-json --write **/package.json && bun lint:fix && bun format:fix && bun typecheck && eslint . --fix",
+    "format": "turbo run format --continue -- --cache --cache-location node_modules/.cache/.prettiercache",
+    "format:fix": "turbo run format --continue -- --write --cache --cache-location node_modules/.cache/.prettiercache",
+    "postinstall": "bun lint:ws",
+    "lint": "turbo run lint --continue -- --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:ws": "bunx sherif@latest",
+    "typecheck": "turbo run typecheck",
+    "ui-add": "turbo run ui-add",
+    "up": "bun update && for i in $(fd package.json | sd package.json '' | rg '/$'); do bun update --cwd $i; done"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tooling/*"
+  ],
+  "devDependencies": {
+    "@a/prettier-config": "*",
+    "@turbo/gen": "latest",
+    "@types/bun": "latest",
+    "concurrently": "latest",
+    "eslint-plugin-tailwindcss": "latest",
+    "prettier": "latest",
+    "prettier-package-json": "latest",
+    "turbo": "latest",
+    "typescript": "latest"
+  },
+  "packageManager": "bun@1.1.17",
+  "prettier": "@a/prettier-config"
+}
